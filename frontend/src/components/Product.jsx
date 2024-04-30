@@ -5,10 +5,10 @@ const Product = ({ product }) => {
   const offer = Math.round((product.price / product.mrp) * 100);
 
   return (
-    <div className="bg-stone-200 border border-slate-300 rounded-md">
+    <div className="bg-stone-200 border border-slate-300 rounded-md flex flex-col">
       <img src={product.image} alt="mop" />
-      <div>
-        <h2 className="text-base font-semibold">{product.name}</h2>
+      <div className="px-2 py-3 space-y-2 ">
+        <h2 className="text-base md:text-lg font-semibold">{product.name}</h2>
         <p className="text-sm text-stone-800">
           <span className="font-semibold">
             <span className="fa fa-star"></span>
@@ -28,7 +28,9 @@ const Product = ({ product }) => {
           <p className="text-xs">({offer}%) off</p>
         </div>
       </div>
-      <AddToCartBtn />
+      <div className="mt-auto">
+        <AddToCartBtn />
+      </div>
     </div>
   );
 };
