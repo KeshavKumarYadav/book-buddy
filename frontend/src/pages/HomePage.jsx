@@ -1,4 +1,4 @@
-import Product from "../components/Product";
+import ProductCard from "../components/ProductCard";
 import products from "../products";
 import Categories from "../segment/Categories";
 
@@ -17,7 +17,7 @@ const HomePage = () => {
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {products.map((product, i) => (
-            <Product product={product} key={product._id} />
+            <ProductCard product={product} key={product._id} />
           ))}
         </div>
       </div>

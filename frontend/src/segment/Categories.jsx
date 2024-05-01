@@ -1,4 +1,4 @@
-import Category from "../components/Category";
+import CategoryCardHomePage from "../components/CategoryCardHomePage";
 
 const categories = [
   {
@@ -39,12 +39,12 @@ const Categories = () => {
         </p>
       </div>
       <div className="flex justify-between gap-3 sm:gap-5 lg:gap-7 overflow-x-scroll scrollb items-center mb-4 pb-3 lg:pb-6">
-        <Category category={categories[5]} />
-        <Category category={categories[4]} />
-        <Category category={categories[1]} />
-        <Category category={categories[2]} />
-        <Category category={categories[0]} />
-        <Category category={categories[3]} />
+        <CategoryCardHomePage category={categories[5]} />
+        <CategoryCardHomePage category={categories[4]} />
+        <CategoryCardHomePage category={categories[1]} />
+        <CategoryCardHomePage category={categories[2]} />
+        <CategoryCardHomePage category={categories[0]} />
+        <CategoryCardHomePage category={categories[3]} />
         <div className="ml-4">
           <a
             href=""
