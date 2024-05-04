@@ -1,6 +1,10 @@
 from django.contrib import admin
-from . import models
+from .models import *
 
 # Register your models here.
 
-admin.site.register(models.Product)
+admin.site.register(Product)
+admin.site.register(Order)
+admin.site.register(OrderItem)
+admin.site.register(ShippingAddress)
+admin.site.register(Review)
