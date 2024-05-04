@@ -8,7 +8,7 @@ const Product = ({ product }) => {
 
   return (
     <div className="bg-stone-200 border border-slate-300 rounded-md flex flex-col">
-      <Link to={`/product/${product._id}`}>
+      <Link to={`/product/${product.id}`}>
         <img src={product.image} alt="mop" />
         <div className="px-2 py-3 space-y-2 ">
           <h2 className="text-base md:text-lg font-semibold">{product.name}</h2>

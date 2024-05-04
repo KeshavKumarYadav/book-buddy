@@ -2,11 +2,26 @@ import { useParams } from "react-router-dom";
 import products from "../products";
 import StarRating from "../components/StarRating";
 import AddToCartBtn from "../components/AddToCartBtn";
+import { useEffect, useState } from "react";
 
 const ProductDetailPage = () => {
+  const [product, setProduct] = useState({});
   const param = useParams();
-  const [product] = products.filter((product) => product._id === param.id);
+  // const [product] = products.filter((product) => product._id === param.id);
+  // console.log(product);
+
+  useEffect(() => {
+    async function getProducts() {
+      const res = await fetch(`http://127.0.0.1:8000/api/product/${param.id}`);
+      const data = await res.json();
+      setProduct(data);
+      // console.log(data);
+    }
+    getProducts();
+  }, []);
+
   console.log(product);
+
   const offer = Math.round((product.price / product.mrp) * 100);
 
   return (

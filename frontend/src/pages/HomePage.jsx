@@ -1,8 +1,22 @@
+import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import products from "../products";
 import Categories from "../segment/Categories";
 
 const HomePage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function getProducts() {
+      const res = await fetch("http://127.0.0.1:8000/api/product/");
+      const data = await res.json();
+      setProducts(data);
+      // console.log(data);
+    }
+    getProducts();
+  }, []);
+
+  console.log(products);
+
   return (
     <>
       <Categories />
@@ -17,7 +31,7 @@ const HomePage = () => {
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {products.map((product, i) => (
-            <ProductCard product={product} key={product._id} />
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>
