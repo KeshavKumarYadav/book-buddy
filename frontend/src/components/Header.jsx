@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import { BrowserRouter, Link } from "react-router-dom";
 
 const Header = () => {
   const [searchClicked, setSearchClicked] = useState(false);
@@ -38,11 +39,11 @@ const Header = () => {
               className="text-sm sm:hidden fa fa-search hover:bg-stone-600 rounded-full w-7 h-7"
               onClick={() => setSearchClicked(true)}
             ></button>
-            <h2>
-              <a href="">
+            <a href="/cart">
+              <h2>
                 <span className="fa fa-shopping-cart"></span> CART
-              </a>
-            </h2>
+              </h2>
+            </a>
             <h2>
               <a href="">
                 <span className="fa fa-user"></span> LOGIN
