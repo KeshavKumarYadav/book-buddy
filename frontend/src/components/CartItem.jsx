@@ -1,10 +1,18 @@
 import { useDispatch } from "react-redux";
 import { remove } from "../slices/CartSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartItem = ({ product }) => {
   const dispatch = useDispatch();
+
+  const notify = () => {
+    toast(`${product.name} removed from cart`);
+  };
+
   const removeFromCartBtnOnClickHandler = () => {
     dispatch(remove(product.id));
+    notify();
     // console.log(product.id);
   };
 

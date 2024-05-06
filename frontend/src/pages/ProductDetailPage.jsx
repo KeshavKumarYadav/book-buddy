@@ -6,7 +6,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../slices/CartSlice";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const ProductDetailPage = () => {
+  const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
 
   const [product, setProduct] = useState({});
@@ -21,8 +25,19 @@ const ProductDetailPage = () => {
     getProducts();
   }, []);
 
+  const notify = (message) => {
+    toast(message);
+  };
+
   const addToCartBtnOnClickHandler = () => {
+    for (let i = 0; i < cartItems.length; i++) {
+      if (cartItems[i].id === product.id) {
+        notify("Product already added to cart");
+        return;
+      }
+    }
     dispatch(add(product));
+    notify(`${product.name} added to cart`);
   };
 
   const offer = Math.round((product.price / product.mrp) * 100);
