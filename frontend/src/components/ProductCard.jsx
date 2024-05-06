@@ -33,9 +33,9 @@ const Product = ({ product }) => {
           </div>
         </div>
       </Link>
-      <div className="mt-auto">
+      {/* <div className="mt-auto">
         <AddToCartBtn />
-      </div>
+      </div> */}
     </div>
   );
 };

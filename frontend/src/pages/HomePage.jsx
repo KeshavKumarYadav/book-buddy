@@ -15,7 +15,7 @@ const HomePage = () => {
     getProducts();
   }, []);
 
-  console.log(products);
+  // console.log(products);
 
   return (
     <>

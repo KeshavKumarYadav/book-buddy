@@ -39,11 +39,11 @@ const Header = () => {
               className="text-sm sm:hidden fa fa-search hover:bg-stone-600 rounded-full w-7 h-7"
               onClick={() => setSearchClicked(true)}
             ></button>
-            <a href="/cart">
+            <Link to="/cart">
               <h2>
                 <span className="fa fa-shopping-cart"></span> CART
               </h2>
-            </a>
+            </Link>
             <h2>
               <a href="">
                 <span className="fa fa-user"></span> LOGIN

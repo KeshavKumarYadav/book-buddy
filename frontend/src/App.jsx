@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
@@ -8,20 +8,25 @@ import CategoriesPage from "./pages/CategoriesPage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/cart",
-    element: <CartPage />,
-  },
-  {
-    path: "/categories",
-    element: <CategoriesPage />,
-  },
-  {
-    path: "/product/:id",
-    element: <ProductDetailPage />,
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
+      },
+      {
+        path: "/categories",
+        element: <CategoriesPage />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetailPage />,
+      },
+    ],
   },
 ]);
 
@@ -30,11 +35,11 @@ function App() {
     <>
       <Header />
       <main>
-        <RouterProvider router={router} />
+        <Outlet />
       </main>
       <Footer />
     </>
   );
 }
 
-export default App;
+export default router;
