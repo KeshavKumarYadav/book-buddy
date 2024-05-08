@@ -1,12 +1,14 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { BrowserRouter, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.items);
   const [searchClicked, setSearchClicked] = useState(false);
 
   return (
-    <div className=" bg-stone-800">
+    <div className=" bg-stone-800 sticky top-0">
       {searchClicked && (
         <div className="flex items-center justify-center gap-6 h-[62.71px]">
           <button
@@ -34,15 +36,22 @@ const Header = () => {
             <SearchBar />
           </div>
 
-          <div className="flex gap-3 items-center text-sm sm:text-base sm:gap-6">
+          <div className="flex gap-3 items-center text-sm sm:text-lg sm:gap-6">
             <button
               className="text-sm sm:hidden fa fa-search hover:bg-stone-600 rounded-full w-7 h-7"
               onClick={() => setSearchClicked(true)}
             ></button>
             <Link to="/cart">
-              <h2>
-                <span className="fa fa-shopping-cart"></span> CART
-              </h2>
+              <div className="relative">
+                <h2 className="">
+                  <span className="fa fa-shopping-cart"></span> CART
+                </h2>
+                {cartItems.length > 0 && (
+                  <div className="bg-stone-800 flex justify-center items-center rounded-full font-semibold absolute -right-2.5 -top-1.5 text-xs ring-1 ring-white text-white w-3 h-3">
+                    {cartItems.length}
+                  </div>
+                )}
+              </div>
             </Link>
             <h2>
               <a href="">
