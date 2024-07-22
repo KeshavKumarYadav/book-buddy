@@ -2,7 +2,7 @@
 
 
 # Installation
-* 1 - clone repo git@github.com:sauravsingh3480/TECHSHOP.git
+* 1 - clone repo https://github.com/KeshavKumarYadav/book-buddy.git
 * 2 - create a virtual environment and activate
 *  - pip install virtualenv
 *  - virtualenv envname
